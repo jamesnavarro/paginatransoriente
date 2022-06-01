@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Reporte de Costos</title>
+            <script type="text/javascript" src="../js/jquery.equalHeight.js"></script>
+    <script src="../../js/jquery.tablesorter.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script src="../../js/ajax.js" type="text/javascript"></script>
+        <style>
+.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 12px; font-weight: bold; border-left: 0px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; border-left: 2px solid #E1EEF4;font-size: 12px;border-bottom: 2px solid #E1EEF4;font-weight: normal; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEF4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #006699; color: #FFFFFF; background: none; background-color:#00557F;}div.dhtmlx_window_active, div.dhx_modal_cover_dv { position: fixed !important; } </style>
+    <script> 
+        function planilla(cot,gt){
+            var t_alu = $("#t_alu").val();
+            var t_vid = $("#t_vid").val();
+            var t_acc = $("#t_acc").val();
+            var t_adi = $("#t_adi").val();
+            var t_kit = $("#t_kit").val();
+            var t_mob = $("#t_mob").val();
+            var t_ins = $("#t_ins").val();
+            var t_pol = $("#t_pol").val();
+            var t_and = $("#t_and").val();
+            var to_serv = $("#to_serv").val();
+            var to_mat = $("#to_mat").val();
+            var to_k = $("#to_k").val();
+            var t = $("#totales").val();
+            t_kit = parseFloat(t_kit) + parseFloat(to_k);
+            t_acc = parseFloat(t_acc) + parseFloat(to_mat);
+            t_ins = parseFloat(to_serv) + parseFloat(t_ins);
+            window.open("../../vistas/costos/planilla_costo.php?cot="+cot+"&t="+t+"&t_alu="+t_alu+"&t_vid="+t_vid+"&t_acc="+t_acc+"&t_adi="+t_adi+"&t_kit="+t_kit+"&t_mob="+t_mob+"&t_ins="+t_ins+"&t_pol="+t_pol+"&t_and="+t_and+"&gt="+gt+" ", "Planilla", "width=1000 , height=600 ");
+        }
+        </script>
+
+    </head>
+    <body>
+                <div class="datagrid">
+            <span id="btn"> 
+                <button onclick="window.print()">Imprimir Pdf</button> 
+                | <a href="/cotizacion/vistas/form/reporte_costos.php?cot=60937&gt=3121899.1428571&d&d"><button>Descargar Excel</button></a>
+                
+            </span>
+        <table>
+            <thead>
+            <tr>
+                <th>Items</th>
+                <th>Descripcion</th>
+                <th>Costo Aluminio</th>
+                <th>Peso Aluminio</th>
+                <th>Costo Vidrios</th>}
+                <th>Peso Vidrio</th>
+                <th>Costo Accesorios</th>
+                <th>Costo Accesorios Adicional</th>
+                <th>Peso Acces.</th>
+                <th>Costo Kits</th>
+                <th>Costo Mano de Obra</th>
+                <th>Costo de Instalacion</th>
+                <th>Instalacion Polimask</th>
+                <th>Costo Andamios</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>V-01</td><td>VENTANA 5020 TB DE 2 HOJA INDEPENDIENTES, 1 FIJA Y 1 CORREDIZA, 2 RIELES ALETA ALTA</td><td style="text-align:right">56,413</td><td style="text-align:right">4</td><td style="text-align:right">20,585</td><td style="text-align:right">15</td><td style="text-align:right">21,362</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">3,085</td><td style="text-align:right">9,159</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-02</td><td>VENTANA 5020 TB DE 2 HOJA INDEPENDIENTES, 1 FIJA Y 1 CORREDIZA, 2 RIELES ALETA ALTA</td><td style="text-align:right">58,313</td><td style="text-align:right">5</td><td style="text-align:right">22,289</td><td style="text-align:right">16</td><td style="text-align:right">21,654</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">3,085</td><td style="text-align:right">9,159</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-03</td><td>VENTANA 3835 DE 2 HOJAS 1 FIJA Y 1 CORREDIZA CON 1 RIEL ALETA DE 22MM</td><td style="text-align:right">15,184</td><td style="text-align:right">1</td><td style="text-align:right">8,642</td><td style="text-align:right">4</td><td style="text-align:right">10,834</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">2,942</td><td style="text-align:right">9,159</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-04</td><td>VENTANA 5020 TB DE 2 HOJA INDEPENDIENTES, 1 FIJA Y 1 CORREDIZA, 2 RIELES ALETA ALTA</td><td style="text-align:right">72,181</td><td style="text-align:right">6</td><td style="text-align:right">46,114</td><td style="text-align:right">26</td><td style="text-align:right">23,788</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">3,085</td><td style="text-align:right">9,159</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-05</td><td>VENTANA 5020 TB DE 2 HOJAS 1 FIJA Y 1 CORREDIZA INTERMEDIO 2 RIELES ALETA ALTA + CUERPO FIJO INF 3831</td><td style="text-align:right">96,314</td><td style="text-align:right">8</td><td style="text-align:right">46,800</td><td style="text-align:right">32</td><td style="text-align:right">20,436</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">5,119</td><td style="text-align:right">18,318</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-06</td><td>VENTANA 3835 DE 2 HOJAS 1 FIJA Y 1 CORREDIZA CON 1 RIEL ALETA DE 22MM</td><td style="text-align:right">12,403</td><td style="text-align:right">1</td><td style="text-align:right">6,285</td><td style="text-align:right">3</td><td style="text-align:right">9,764</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">2,942</td><td style="text-align:right">9,159</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-07</td><td>VENTANA 3831 PROYECTANTE HORIZONTAL *</td><td style="text-align:right">20,600</td><td style="text-align:right">2</td><td style="text-align:right">2,052</td><td style="text-align:right">1</td><td style="text-align:right">18,503</td><td style="text-align:right">12,000</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">3,614</td><td style="text-align:right">9,159</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-08</td><td>CUERPO FIJO INFERIOR EN MARCO 3831, MAS REJILLA EN PERSIANA PEQUEÑA TIPO Z, SEPARADA ENTRE PERSIANA A 50MM</td><td style="text-align:right">31,522</td><td style="text-align:right">2</td><td style="text-align:right">14,740</td><td style="text-align:right">8</td><td style="text-align:right">3,679</td><td style="text-align:right">12,000</td><td style="text-align:right">0</td><td style="text-align:right">0</td><td style="text-align:right">5,504</td><td style="text-align:right">14,834</td><td style="text-align:right">0</td><td style="text-align:right">0</td><tr><td>V-09</td><td>PUERTA O VENTANA 6000 TA DE 3 HOJAS 1 FIJA INDEPENDIENTE Y 2 CORREDIZA 3 RIEL ALETA ALTA</td><td style="text-align:right">291,235</td><td style="text-align:right">23</td><td style="text-align:right">183,817</td><td style="text-align:right">111</td><td style="text-align:right">81,366</td><td style="text-align:right">33,690</td><td style="text-align:right">0</td><td style="text-align:right">25,584</td><td style="text-align:right">7,397</td><td style="text-align:right">32,286</td><td style="text-align:right">0</td><td style="text-align:right">0</td>                    <tr>
+                        <td colspan="2">Totales</td>
+                        <td style="text-align:right">654,164<input type="hidden" id="t_alu" value="654164.09"></td>
+                        <td style="text-align:right">52<input type="hidden" id="p_alu" value="51.84"> Kg </td>
+                        <td style="text-align:right">351,321<input type="hidden" id="t_vid" value="351321.13"></td>
+                        <td style="text-align:right">216<input type="hidden" id="p_vid" value="216.31"> Kg </td>
+                        <td style="text-align:right">211,387<input type="hidden" id="t_acc" value="211386.57"></td>
+                        <td style="text-align:right">57,690<input type="hidden" id="t_adi" value="57689.65"></td>
+                        <td style="text-align:right">0<input type="hidden" id="p_acc" value="0"> Kg </td>
+                        <td style="text-align:right">25,584<input type="hidden" id="t_kit" value="25584"></td>
+                        <td style="text-align:right">36,773<input type="hidden" id="t_mob" value="36773"></td>
+                        <td style="text-align:right">120,392<input type="hidden" id="t_ins" value="120392"></td>
+                        <td style="text-align:right">0<input type="hidden" id="t_pol" value="0"></td>
+                        <td style="text-align:right">0<input type="hidden" id="t_and" value="0"></td>
+                    <tr>
+                        <tr>
+                        <td colspan="13">Total Costo Directo
+                            <button onclick="planilla(60937,3121899.1428571)">Planilla de Costo</button>
+                        </td>
+                        <td style="text-align:right">
+                            1,457,310                            <input type="hidden" id="totales" value="1457310.44">
+                        </td>
+                    <tr>
+                        <td colspan="13">Peso Total 
+                           
+                        </td>
+                        <td style="text-align:right">
+                            268                            <input type="hidden" id="totales" value="268.15">Kg
+                        </td>
+                        </tbody>
+
+        </table>
+            
+            <hr>
+            <table class="table table-bordered table-striped table-hover" id="" border="1"><thead ><tr BGCOLOR="#4E8CCF"><td colspan="9" align="center">Descripcion De Servicios</td></tr><tr BGCOLOR="#C3D9FF"><th width="5%">Items</th><th width="5%">Codigo</th><th width="40%">Descripcion del servicio</th><th width="10%">Referencia</th><th width="10%">Pago Ins</th><th width="10%">Descuento</th><th width="10%">Cantidad</th><th width="10%">Total Pago</th><th width="10%">Costo Total</th></tr></thead></table><div align="left"><FONT color="red"><h5>TOTAL SERVICIOS.: 0</h5></FONT></div>            <input type="hidden" id="to_serv" value="0">
+            <table class="table table-bordered table-striped table-hover" id="" border="1"><thead ><tr BGCOLOR="#4E8CCF"><td colspan="10" align="center">Descripcion De Materiales</td></tr><tr BGCOLOR="#C3D9FF"><th width="5%">Items</th><th width="5%">Codigo</th><th width="40%">Descripcion de los materiales</th><th width="10%">Referencia</th><th width="10%">Medida</th><th width="10%">Costo</th><th width="10%">Acabado</th><th width="10%">Descuento</th><th width="10%">Cantidad</th><th nowrap width="10%">Costo Total + Desp.</th></tr></thead></table><div align="left"><FONT color="red"><h5>TOTAL MATERIALES.: 0</h5></FONT></div>            <input type="hidden" id="to_mat" value="0">
+            <table class="table table-bordered table-striped table-hover" id="" border="1"><thead ><tr BGCOLOR="#4E8CCF"><td colspan="9" align="center">Descripcion De KIT</td></tr><tr BGCOLOR="#C3D9FF"><th width="5%">Items</th><th width="5%">Codigo</th><th width="40%">Descripcion del kit</th><th width="10%">Referencia</th><th width="10%">Medida</th><th width="10%">Costo</th><th width="10%">Descuento</th><th width="10%">Cantidad</th><th width="10%">Costo Total</th></tr></thead></table><div align="left"><FONT color="red"><h5>TOTAL KIT.: 0</h5></FONT></div><div align="left"><FONT color="red"><h4>GRAN TOTAL.: 0</h4></FONT></div>            <input type="hidden" id="to_k" value="0">
+       
+            </div>
+    </body>
+</html>
