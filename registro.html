@@ -12,7 +12,7 @@
 
 	<meta charset="utf-8" />
 
-	<title>Trabaja con nosotros</title>
+	<title>TransOriente s.a.s</title>
 
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 
@@ -162,7 +162,7 @@
 		
 							<div class="col-md-12 quote">
 		
-								 <h3 style="padding-top: 6px;">INGRESA TU INFORMACION PARA CONTACTARTE</h3>
+								 <h3 style="padding-top: 6px;">Ingresa tu hoja de vida y trabaja con nosotros.</h3>
 		
 							</div>
 		
@@ -173,56 +173,84 @@
 						<!-- end row -->
 		
 					</div>
-					
 		
-				<form action="enviahv.php">
-				</div>
-                  <br>
-				  <div><p><b>Datos Personales</b></p></div>
-				  <div class="row">
-					<div class="col-md-6">
-							<input type="text" id="nombre" name="nombre" class="form-control" required="required" placeholder="Nombre" />
-					</div> 
-
-					<div class="col-md-6">
-							<input type="text" id="apellido" name="apellido" class="form-control" required="required" placeholder="Apellidos" />
-					</div> 
-				  </div><br>
-				  <div class="row">
-					<div class="col-md-6">
-							
-							<input type="text" id="tipo_doc" name="nombre" class="form-control" required="required" placeholder="Tipo de documento" />
-
-					</div>
-
-					<div class="col-md-6">
-						
-							
-							<input type="text" id="num_doc" name="nombre" class="form-control" required="required" placeholder="Numero documento" />
-
-					
-					</div>
-
-				  </div><br>
 				
-				  <div class="row">
-					<div class="col-md-6">
-							<input type="text" id="correo" name="nombre" class="form-control" required="required" placeholder="Correo electronico" />
-					</div> 
-
-				  </div><br>
-				  <div><p><b>Compartenos tu Hoja de vida</b></p></div>
-				  <div class="col-md-4">
-				  <input type="file" id="archivo" name="nombre" class="form-control" required="required" placeholder="Elige un archivo" />
-				  <br><input id="subir" type="submit" value="Enviar datos">
 				</div>
-			</form>
-				<br>
 
-    <div>
-		    <button type="submit" class="btn btn-theme btn-block">Guardar y Enviar</button>
 
-	</div><br>
+
+				<div id="about" class="content" data-scrollview="true">
+
+					<!-- begin col-4 -->
+					
+					<div class="container mt-5">
+
+						<h3 class="text-center mb-5" style="color:#555 ; font-weight: 800;">
+							 <span style="color: orange;"> Registrate</span>
+						  <hr>
+						</h3>
+							
+					
+						<form  name="formulario" id="formulario" action="correo/enviarOne.php" method="post" enctype="multipart/form-data">
+							<div class="row justify-content-center">
+								<div class="col-6">
+									<div class="form-group">
+										<label for="nombre">Nombre Completo</label>
+										<input type="text" name="nombre"  placeholder="Escriba su Nombre"  class="form-control" required="true">
+									</div>
+								</div>
+								 <div class="col-6">
+									<div class="form-group">
+										<label for="email">Tienes Vehiculo?</label>
+										<select  class="form-control" name="vehiculo" required>
+											<option value="">Seleccione</option>
+											<option value="Si">Si</option>
+											<option value="No">No</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<div class="form-group">
+										<label for="nombre">Telefono</label>
+										<input type="text" name="telefono"  placeholder="Escriba su numero de telefono o celular"  class="form-control" required="true">
+									</div>
+								</div>
+								 <div class="col-6">
+									<div class="form-group">
+										<label for="email">Email</label>
+										<input type="email" name="email" placeholder="Su email"  class="form-control" required>
+									</div>
+								</div>
+							  </div>
+					
+							  <div class="input-group mb-3">
+								<div class="input-group-prepend">
+								  <span class="input-group-text">Archivo Hoja de vida pdf</span>
+								</div>
+								<div class="custom-file">
+								  <input type="file" name="my_file" id="my_file" class="custom-file-input" accept="pdf" required>
+								  <label class="custom-file-label" for="inputGroupFile01">Hacer click aqui..!</label>
+								</div>
+							  </div>
+					
+							  <div class="col-12 text-center mt-5 mb-5">
+								<button type="submit" class="btn btn-theme">Enviar Hoja de Vida</button>
+							  </div>
+							</form>
+							
+						  </div>
+
+
+
+
+							
+					
+
+					<!-- end col-4 -->
+
+				</div>
+				
 
 				<!-- end row -->
 
