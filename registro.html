@@ -195,6 +195,20 @@
 							<div class="row justify-content-center">
 								<div class="col-6">
 									<div class="form-group">
+										<label for="email">En que quieres postularte?</label>
+										<select name="tipo" id="tipo" class="form-control" required onchange="campos()">
+											<option value="">
+												Selecciona tipo de postulaccion.
+											</option>
+											<option value="Hoja_vida_conductor">Postularme como conductor</option>
+											<option value="Hoja_vida_vehiculo">Postular mi vehiculo</option>
+											<option value="Hoja_vida_conductor_vehiculo">Postularme como conductor con vehiculo</option>
+
+										</select>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="form-group">
 										<label for="nombre">Nombre Completo</label>
 										<input type="text" name="nombre"  placeholder="Escriba su Nombre"  class="form-control" required="true">
 									</div>
@@ -213,17 +227,43 @@
 										<input type="email" name="email" placeholder="Su email"  class="form-control" required>
 									</div>
 								</div>
-								<div class="col-6">
+								
+								
+							
+							  <!-- <div class="row justify-content-center" id="vehiculo" style="display: none;"> -->
+								<div class="col-3" id="a" style="display: none;">
 									<div class="form-group">
-										<label for="email">Datos de vehiculo <b>(</b>tipo de vehiculo, placa y modelo<b>)</b></label>
-										<textarea  name="vehiculo" class="form-control" required="required" rows="8" placeholder="Digite tipo de vehiculo, placa y modelo" ></textarea>
+										<label for="email">Placa del vehiculo</label>
+										<input type="text" name="placa" id="placa" placeholder="Ejemplo: ABC123"  class="form-control" >
+
 									</div>
 								</div>
-							  </div>
+								<div class="col-3" id="b" style="display: none;">
+									<div class="form-group">
+										<label for="email">Tipo de vehiculo</label>
+										<input type="text" name="tipo_vehiculo" id="tipo_vehiculo" placeholder="Ejemplo: Camioneta, Automóvil, Campero, Convertible etc  "  class="form-control" >
+
+									</div>
+								</div>
+								<div class="col-3" id="c" style="display: none;">
+									<div class="form-group">
+										<label for="email">Modelo del vehiculo</label>
+										<input type="text" name="modelo" id="modelo" placeholder="Ejemplo: 2022"  class="form-control" >
+
+									</div>
+								</div>
+								<div class="col-3" id="d" style="display: none;">
+									<div class="form-group">
+										<label for="email">Marca del vehiculo</label>
+										<input type="text" name="marca" id="marca" placeholder="Ejemplo: Mazda, chevrolet, kia....."  class="form-control" >
+
+									</div>
+								</div>
+							 <!--  </div> -->
 					
 							  <div class="input-group mb-3">
 								<div class="input-group-prepend">
-								  <span class="input-group-text">Archivo Hoja de vida pdf</span>
+								  <span class="input-group-text" id="archivo">Archivo Hoja de vida pdf</span>
 								</div>
 								<div class="custom-file">
 								  <input type="file" name="my_file" id="my_file" class="custom-file-input" accept="pdf" required>
@@ -234,7 +274,8 @@
 							  <div class="col-12 text-center mt-5 mb-5">
 								<button type="submit" class="btn btn-theme">Enviar Hoja de Vida</button>
 							  </div>
-							</form>
+							</div>
+							 </form>
 							
 						  </div>
 
@@ -362,7 +403,10 @@
 
 	<script src="assets/js/one-page-parallax/apps.min.js"></script>
 
-	<!-- ================== END BASE JS ================== -->
+	<!-- ================== END BASE JS
+											<option value="Hoja_vida_conductor">Postularme como conductor</option>
+		
+											================== -->
 
 	
 
@@ -373,7 +417,36 @@
 			App.init();
 
 		});
-
+		function campos() {
+			var tipo = $("#tipo").val();
+			switch (tipo) {
+				    case 'Hoja_vida_conductor':
+					    $("#archivo").html("Ingresa tu hoja de vida en pdf");
+						document.getElementById('a').style.display = 'none';
+						document.getElementById('b').style.display = 'none';
+						document.getElementById('c').style.display = 'none';
+						document.getElementById('d').style.display = 'none';
+					break;
+					case 'Hoja_vida_vehiculo':
+					     $("#archivo").html("Ingresa los documentos del vehiculo aqui");
+					
+						 document.getElementById('a').style.display = 'block';
+						document.getElementById('b').style.display = 'block';
+						document.getElementById('c').style.display = 'block';
+						document.getElementById('d').style.display = 'block';
+					break;
+					case 'Hoja_vida_conductor_vehiculo':
+					     $("#archivo").html("Ingresa tu hoja de vida con los del vehiculo");
+						 document.getElementById('a').style.display = 'block';
+						document.getElementById('b').style.display = 'block';
+						document.getElementById('c').style.display = 'block';
+						document.getElementById('d').style.display = 'block';
+					break;
+			
+				default:
+					break;
+			}
+		}
 	</script>
 	
 
